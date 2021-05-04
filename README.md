@@ -26,7 +26,6 @@ El la carpeta application/libraries creamos un archivo Excel.php
 <pre>
 
 
-<?php
 
 if (!defined('BASEPATH')) exit('No direct script access allowed');
 
@@ -46,7 +45,7 @@ class Excel {
 		return $sheetData;
 	}
 }
-?>
+
 
 </pre>
 
