@@ -24,8 +24,12 @@ composer require phpoffice/phpspreadsheet
 El la carpeta application/libraries creamos un archivo Excel.php
 
 <pre>
+
+
 <?php
+
 if (!defined('BASEPATH')) exit('No direct script access allowed');
+
 use PhpOffice\PhpSpreadsheet\IOFactory;
 
 class Excel {
@@ -43,6 +47,7 @@ class Excel {
 	}
 }
 ?>
+
 </pre>
 
 ---------------------------------------------------------------------------------------------------------------------------
