@@ -1,5 +1,6 @@
 # excel-codeigniter
 Ejemplo de importar excel en codeigniter v3.x
+
 Es una simple forma de importar los datos de un excel en un proyecto de codeigniter usando la libreria Phpspreadsheet
 
 ---------------------------------------------------------------------------------------------------------------------------
@@ -13,6 +14,7 @@ El primer paso es en el explorador de carpetas ubicarse en la carpeta del proyec
 ---------------------------------------------------------------------------------------------------------------------------
 
 Seguidamente abrir el CMD y ejecutar el comando:
+
 composer require phpoffice/phpspreadsheet
 
 ---------------------------------------------------------------------------------------------------------------------------
@@ -21,6 +23,7 @@ composer require phpoffice/phpspreadsheet
 
 El la carpeta application/libraries creamos un archivo Excel.php
 
+<pre>
 <?php
 if (!defined('BASEPATH')) exit('No direct script access allowed');
 use PhpOffice\PhpSpreadsheet\IOFactory;
@@ -40,12 +43,14 @@ class Excel {
 	}
 }
 ?>
+</pre>
 
 ---------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------
 
 En el archivo config/config.php cambiamos el valor de la variable composer_autoload
+
 $config['composer_autoload'] = 'vendor/autoload.php';
 
 ---------------------------------------------------------------------------------------------------------------------------
@@ -53,8 +58,12 @@ $config['composer_autoload'] = 'vendor/autoload.php';
 ---------------------------------------------------------------------------------------------------------------------------
 
 En el controlador solo debemos importar la libreria
+
 $this->load->library('excel');
+
+
 Obtenemos los datos del excel
+
 $sheetData = $this->excel->load_fsc($_FILES['excel']['tmp_name']);
 
 ---------------------------------------------------------------------------------------------------------------------------
