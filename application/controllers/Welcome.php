@@ -23,13 +23,19 @@ class Welcome extends CI_Controller {
 						if(count($row) > 0){
 							$arr_row = [];
 							$iter = 0;
+							$is_null = 0;
 							foreach($row as $key => $value){
 								if($iter > $num){
 									break;
 								}
+								if(empty($value)){
+									$is_null++;
+								}
 								$arr_row[$column_name[$iter++]] = $value;
 							}
-							array_push($out,$arr_row);
+							if($is_null < $num){
+								array_push($out,$arr_row);
+							}
 						}
 					}
 				}
@@ -60,6 +66,6 @@ class Welcome extends CI_Controller {
 			}*/
 		}
 		
-		$this->load->view('form', $data);
+		$this->load->view('form');
 	}
 }
