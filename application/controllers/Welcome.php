@@ -9,6 +9,9 @@ class Welcome extends CI_Controller {
 	
 	//primero tenemos que configurar en config/config.php      $config['composer_autoload'] = 'vendor/autoload.php';
 	public function index(){
+		if(!is_https() AND $_SERVER['HTTP_HOST'] != '127.0.0.1'){
+			redirect('/');
+		}
 		$this->load->library('excel');
 		$out = [];
 		if(!empty($_FILES)){
